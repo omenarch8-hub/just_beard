@@ -1,0 +1,340 @@
+:root {
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --surface-0: rgba(49, 50, 68, 0.84);
+  --surface-1: rgba(69, 71, 90, 0.92);
+  --text: #cdd6f4;
+  --subtext: #a6adc8;
+  --rosewater: #f5e0dc;
+  --mauve: #cba6f7;
+  --pink: #f5c2e7;
+  --green: #a6e3a1;
+  --yellow: #f9e2af;
+  --blue: #89b4fa;
+  --peach: #fab387;
+  --line: rgba(245, 194, 231, 0.2);
+  --shadow: 0 28px 90px rgba(17, 17, 27, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(203, 166, 247, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(166, 227, 161, 0.1), transparent 24%),
+    linear-gradient(180deg, #241f31 0%, #181825 48%, #11111b 100%);
+  color: var(--text);
+  font-family:
+    "Avenir Next",
+    "Segoe UI",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 72px;
+}
+
+.hero-card,
+.content-section,
+.cta-banner {
+  position: relative;
+}
+
+.hero-card {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background: linear-gradient(160deg, rgba(30, 30, 46, 0.92), rgba(24, 24, 37, 0.88));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -55% auto;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(137, 180, 250, 0.18), transparent 65%);
+  pointer-events: none;
+}
+
+.eyebrow,
+.section-heading span,
+.price-label {
+  margin: 0;
+  color: var(--green);
+  font-family:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    "Consolas",
+    monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-copy h1,
+.section-heading h2,
+.cta-banner h2 {
+  margin: 10px 0 0;
+  color: var(--rosewater);
+  line-height: 0.98;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.6rem, 9vw, 5.8rem);
+  max-width: 12ch;
+}
+
+.hero-text,
+.section-heading p,
+.panel p,
+.cta-banner p,
+.testimonial footer {
+  color: var(--subtext);
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--pink), var(--mauve));
+  color: var(--crust);
+}
+
+.button-secondary {
+  border: 1px solid rgba(137, 180, 250, 0.3);
+  background: rgba(49, 50, 68, 0.72);
+  color: var(--text);
+}
+
+.hero-tags,
+.stack-list,
+.faq-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.hero-tags li,
+.stack-list li {
+  border: 1px solid rgba(245, 194, 231, 0.14);
+  background: rgba(49, 50, 68, 0.45);
+}
+
+.hero-tags li {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--yellow);
+  font-family:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    "Consolas",
+    monospace;
+  font-size: 0.84rem;
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 460px;
+}
+
+.image-glow {
+  position: absolute;
+  width: min(76vw, 420px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(245, 194, 231, 0.22) 0%, rgba(137, 180, 250, 0.12) 38%, transparent 70%);
+  filter: blur(8px);
+}
+
+.product-image {
+  position: relative;
+  width: min(100%, 420px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.28));
+}
+
+.content-section {
+  margin-top: 24px;
+  padding: 24px 0 8px;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+.section-heading h2,
+.cta-banner h2 {
+  font-size: clamp(1.9rem, 6vw, 3.4rem);
+}
+
+.split-grid,
+.card-grid,
+.portfolio-layout {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(30, 30, 46, 0.78), rgba(24, 24, 37, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.panel-accent {
+  border-color: rgba(166, 227, 161, 0.24);
+}
+
+.panel h3,
+.testimonial p {
+  margin-top: 0;
+  color: var(--rosewater);
+}
+
+.stack-list {
+  display: grid;
+  gap: 12px;
+}
+
+.stack-list li {
+  padding: 14px 16px;
+  border-radius: 18px;
+  color: var(--text);
+}
+
+.testimonial footer {
+  margin-top: 14px;
+  font-family:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    "Consolas",
+    monospace;
+  color: var(--blue);
+}
+
+.order-panel {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.order-panel p,
+.order-panel h3 {
+  margin: 0;
+}
+
+.cta-banner {
+  margin-top: 28px;
+  padding: 30px;
+  border: 1px solid rgba(166, 227, 161, 0.24);
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(30, 30, 46, 0.94), rgba(24, 24, 37, 0.96)),
+    linear-gradient(135deg, rgba(166, 227, 161, 0.14), rgba(137, 180, 250, 0.08));
+  box-shadow: var(--shadow);
+}
+
+@media (min-width: 860px) {
+  .hero-card {
+    grid-template-columns: 1.05fr 0.95fr;
+    padding: 42px;
+  }
+
+  .split-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .portfolio-layout {
+    grid-template-columns: 1.3fr 0.7fr;
+  }
+
+  .panel-tall {
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 859px) {
+  .page-shell {
+    width: min(100% - 20px, 1120px);
+    padding-top: 10px;
+  }
+
+  .hero-card,
+  .panel,
+  .cta-banner {
+    border-radius: 24px;
+  }
+
+  .hero-visual {
+    min-height: 320px;
+    order: -1;
+  }
+}
