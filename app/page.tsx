@@ -108,13 +108,7 @@ export default function HomePage() {
       <section className="hero-card" id="top">
         <div className="hero-copy">
           <p className="eyebrow">Premium Beard Care. Coded Differently.</p>
-          <h1>
-            Modern_
-            <wbr />
-            Lumber brings a warm Tobacco-
-            <wbr />
-            Vanilla beard ritual into one bottle.
-          </h1>
+          <h1>Modern_Lumber brings a warm Tobacco-Vanilla beard ritual into one bottle.</h1>
           <p className="hero-text">
             A premium organic beard oil from Just_Beard with a warm, smoky, smooth profile built
             for the modern man.

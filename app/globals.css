@@ -23,13 +23,11 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(203, 166, 247, 0.12), transparent 28%),
     radial-gradient(circle at top right, rgba(166, 227, 161, 0.1), transparent 24%),
@@ -53,10 +51,9 @@ img {
 }
 
 .page-shell {
-  width: 100%;
-  max-width: 1120px;
+  width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px 16px 72px;
+  padding: 24px 0 72px;
 }
 
 .hero-card,
@@ -67,7 +64,6 @@ img {
 
 .hero-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
   gap: 32px;
   align-items: center;
   padding: 28px;
@@ -76,16 +72,6 @@ img {
   background: linear-gradient(160deg, rgba(30, 30, 46, 0.92), rgba(24, 24, 37, 0.88));
   box-shadow: var(--shadow);
   overflow: hidden;
-}
-
-.hero-card > * {
-  min-width: 0;
-}
-
-.hero-copy,
-.hero-visual {
-  width: 100%;
-  min-width: 0;
 }
 
 .hero-card::after {
@@ -123,8 +109,6 @@ img {
 .hero-copy h1 {
   font-size: clamp(2.6rem, 9vw, 5.8rem);
   max-width: 12ch;
-  overflow-wrap: anywhere;
-  text-wrap: balance;
 }
 
 .hero-text,
@@ -250,7 +234,6 @@ img {
 .card-grid,
 .portfolio-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
 }
 
@@ -340,12 +323,8 @@ img {
 
 @media (max-width: 859px) {
   .page-shell {
-    padding: 10px 10px 72px;
-  }
-
-  .hero-card {
-    gap: 20px;
-    padding: 22px 18px 24px;
+    width: min(100% - 20px, 1120px);
+    padding-top: 10px;
   }
 
   .hero-card,
@@ -357,18 +336,5 @@ img {
   .hero-visual {
     min-height: 320px;
     order: -1;
-  }
-
-  .hero-copy h1 {
-    font-size: clamp(2.2rem, 11vw, 3.6rem);
-    max-width: none;
-  }
-
-  .hero-actions {
-    gap: 12px;
-  }
-
-  .button {
-    width: 100%;
   }
 }
