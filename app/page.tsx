@@ -11,27 +11,27 @@ const orderLink = `https://wa.me/${whatsappNumber}?text=${orderMessage}`;
 const problems = [
   "Dry beard texture that feels rough by midday",
   "Skin under the beard getting irritated after washing",
-  "Overpowering oils that smell loud and feel greasy",
+  "Heavy oils that sit on the beard instead of absorbing cleanly",
 ];
 
 const solutions = [
-  "Warm, smoky, smooth Tobacco-Vanilla profile built for daily wear",
+  "Warm Tobacco-Vanilla profile built to feel present without being loud",
   "Organic blend with jojoba, almond, argan, and castor oils",
-  "Hand-poured 30ml formula designed for a softer, cleaner finish",
+  "Hand-poured 30ml formula designed for softer texture and easier control",
 ];
 
 const caseStudies = [
   {
     title: "Workday Reset",
-    text: "Use 2 to 3 drops after a shower for a clean, polished beard that stays calm through long office hours.",
+    text: "Use 2 to 3 drops after a shower for a cleaner beard line and a calm finish that stays put through office hours.",
   },
   {
     title: "Weekend Grooming",
-    text: "Massage into the beard before brushing to reduce flyaways and add a healthy low-shine finish.",
+    text: "Massage into the beard before brushing to reduce flyaways, smooth the shape, and leave a low-shine finish.",
   },
   {
     title: "Starter Routine",
-    text: "A simple 30ml bottle designed for men building a grooming habit without a complicated routine.",
+    text: "A straightforward bottle for men building a beard-care habit without a complicated routine or overloaded shelf.",
   },
 ];
 
@@ -51,17 +51,17 @@ const testimonials = [
 ];
 
 const portfolioItems = [
-  "Modern_Lumber identity with Tobacco-Vanilla scent",
+  "Modern_Lumber identity with a warm Tobacco-Vanilla direction",
   "Organic formula with jojoba, almond, argan, and castor oils",
   "Vitamin E with tobacco vanilla and cedarwood oil accents",
-  "WhatsApp-first ordering for quick checkout",
+  "WhatsApp-first ordering for a fast mobile checkout path",
 ];
 
 const reasons = [
-  "Distinct coded packaging language that makes the product memorable",
-  "Warm, masculine scent direction without an overly sharp finish",
-  "Mobile-first layout tuned for thumb reach and quick scanning",
-  "Clear single-product conversion flow instead of cluttered catalog friction",
+  "Distinct coded packaging language that makes the bottle memorable",
+  "Warm scent direction that feels premium without turning sharp or overpowering",
+  "Single-product flow that removes catalog clutter and keeps the page easy to scan",
+  "Mobile-first layout that keeps copy, CTA, and product details within thumb reach",
 ];
 
 const faqs = [
@@ -82,6 +82,19 @@ const faqs = [
     question: "How do I place an order?",
     answer: "Tap any order button to open WhatsApp with a pre-filled message for this Modern_Lumber variant.",
   },
+];
+
+const quickFacts = [
+  { label: "blend", value: "organic" },
+  { label: "size", value: "30ml" },
+  { label: "finish", value: "clean" },
+];
+
+const orderFacts = [
+  { label: "Variant", value: "variant_01" },
+  { label: "Use", value: "2-3 drops" },
+  { label: "Shelf life", value: "24 months" },
+  { label: "Checkout", value: "WhatsApp" },
 ];
 
 function SectionHeading({
@@ -107,11 +120,12 @@ export default function HomePage() {
     <main className="page-shell">
       <section className="hero-card" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Premium Beard Care. Coded Differently.</p>
-          <h1>Modern_Lumber brings a warm Tobacco-Vanilla beard ritual into one bottle.</h1>
+          <p className="eyebrow">{"> Just_Beard / Premium Beard Care"}</p>
+          <h1>Warm Tobacco-Vanilla beard oil for a softer, cleaner daily beard.</h1>
           <p className="hero-text">
-            A premium organic beard oil from Just_Beard with a warm, smoky, smooth profile built
-            for the modern man.
+            Modern_Lumber by Just_Beard blends jojoba, almond, argan, castor oil, and vitamin E
+            into a hand-poured formula that softens the beard, calms the skin underneath, and
+            avoids a greasy finish.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
@@ -126,6 +140,14 @@ export default function HomePage() {
             <li>30ml bottle</li>
             <li>Tobacco-Vanilla profile</li>
           </ul>
+          <div className="hero-stats" aria-label="quick product facts">
+            {quickFacts.map((fact) => (
+              <div className="stat-card" key={fact.label}>
+                <span>{fact.label}</span>
+                <strong>{fact.value}</strong>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="hero-visual">
@@ -134,6 +156,7 @@ export default function HomePage() {
             src={productImage}
             alt="Just_Beard organic beard oil bottle"
             priority
+            sizes="(max-width: 859px) 78vw, 420px"
             className="product-image"
           />
         </div>
@@ -143,7 +166,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Problem / Solution"
           title="Built for beards that need moisture, calm, and shape."
-          copy="The page follows your requested structure, but the message stays product-first and conversion-focused."
+          copy="Daily beard care breaks down fast when the oil feels heavy, smells too loud, or leaves the skin irritated. This bottle is built to solve that cleanly."
         />
         <div className="split-grid">
           <div className="panel">
@@ -168,8 +191,8 @@ export default function HomePage() {
       <section className="content-section" id="case-studies">
         <SectionHeading
           eyebrow="Case Studies"
-          title="A product story shown through daily use."
-          copy="Instead of agency case studies, this section frames where the oil fits into a real grooming routine."
+          title="Three moments where the bottle earns its place."
+          copy="From office grooming to weekend maintenance, the formula is positioned around real routines instead of generic marketing filler."
         />
         <div className="card-grid">
           {caseStudies.map((item) => (
@@ -184,8 +207,8 @@ export default function HomePage() {
       <section className="content-section" id="testimonials">
         <SectionHeading
           eyebrow="Testimonials"
-          title="Social proof without visual clutter."
-          copy="Short quotes keep the section credible and easy to scan on smaller screens."
+          title="Proof focused on feel, finish, and scent."
+          copy="Short feedback blocks keep the section credible, quick to scan, and easy to read on smaller screens."
         />
         <div className="card-grid">
           {testimonials.map((item) => (
@@ -200,15 +223,15 @@ export default function HomePage() {
       <section className="content-section" id="portfolio">
         <SectionHeading
           eyebrow="Portfolio"
-          title="One hero product, presented with clear buying context."
-          copy="This section acts as a compact product portfolio focused on formula, bottle, identity, and ordering."
+          title="One hero product with the buying context kept tight."
+          copy="Everything important about the formula, bottle, and ordering path is kept in one place so the page stays focused and mobile-friendly."
         />
         <div className="portfolio-layout">
           <div className="panel panel-tall">
             <h3>{productName}</h3>
             <p>
               A hand-poured organic beard oil built around a warm Tobacco-Vanilla scent with
-              cedarwood depth and an ingredient blend aimed at softness and control.
+              cedarwood depth and an ingredient blend aimed at softness, control, and daily wear.
             </p>
             <ul className="stack-list">
               {portfolioItems.map((item) => (
@@ -217,9 +240,23 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="panel order-panel">
-            <p className="price-label">$ ls</p>
-            <h3>Selected product</h3>
-            <p>{productName}</p>
+            <div className="order-summary">
+              <p className="terminal-label">variant_01</p>
+              <h3>Ready to order</h3>
+              <p>{productName}</p>
+            </div>
+            <div className="fact-grid" aria-label="order facts">
+              {orderFacts.map((fact) => (
+                <div className="fact-card" key={fact.label}>
+                  <span>{fact.label}</span>
+                  <strong>{fact.value}</strong>
+                </div>
+              ))}
+            </div>
+            <p className="micro-note">
+              WhatsApp opens with this exact variant pre-filled so the mobile checkout path stays
+              fast.
+            </p>
             <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
               Order This Product
             </a>
@@ -231,7 +268,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Why Us"
           title="Designed to feel premium before the first drop is used."
-          copy="The brand language, page speed, and purchase path all support a simple premium product story."
+          copy="The brand language, the scent profile, and the purchase flow all support a single product story without clutter."
         />
         <div className="card-grid">
           {reasons.map((item) => (
@@ -246,7 +283,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="FAQ"
           title="Common buyer questions answered quickly."
-          copy="The accordion is replaced with simple stacked cards to keep the first version fast and predictable."
+          copy="Ingredients, usage, shelf life, and ordering are all handled in short blocks so the section stays fast to scan on a phone."
         />
         <div className="faq-list">
           {faqs.map((item) => (
