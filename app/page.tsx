@@ -1,23 +1,23 @@
 import Image from "next/image";
 import productImage from "@/images/file_00000000add071fa814510538eada266.png";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
-const productName = "Just_Beard Organic Beard Oil 30ml";
+const whatsappNumber = "917015684448";
+const productName = "variant_01: Modern_Lumber - Tobacco-Vanilla";
 const orderMessage = encodeURIComponent(
   `Hi Just_Beard, I want to order ${productName}. Please share price and delivery details.`,
 );
 const orderLink = `https://wa.me/${whatsappNumber}?text=${orderMessage}`;
 
 const problems = [
-  "Patchy growth that looks dry by midday",
-  "Itchy skin under the beard after washing",
-  "Heavy oils that sit on top instead of soaking in",
+  "Dry beard texture that feels rough by midday",
+  "Skin under the beard getting irritated after washing",
+  "Overpowering oils that smell loud and feel greasy",
 ];
 
 const solutions = [
-  "Jojoba and argan oils help soften rough beard hair",
-  "Castor oil supports a fuller, groomed appearance",
-  "Hand-poured organic blend made for everyday use",
+  "Warm, smoky, smooth Tobacco-Vanilla profile built for daily wear",
+  "Organic blend with jojoba, almond, argan, and castor oils",
+  "Hand-poured 30ml formula designed for a softer, cleaner finish",
 ];
 
 const caseStudies = [
@@ -51,15 +51,15 @@ const testimonials = [
 ];
 
 const portfolioItems = [
-  "Organic ingredient-first formula",
-  "Compact 30ml amber glass bottle",
-  "Label language inspired by code and craft",
+  "Modern_Lumber identity with Tobacco-Vanilla scent",
+  "Organic formula with jojoba, almond, argan, and castor oils",
+  "Vitamin E with tobacco vanilla and cedarwood oil accents",
   "WhatsApp-first ordering for quick checkout",
 ];
 
 const reasons = [
-  "Catppuccin-inspired identity that feels modern and distinct",
-  "Lightweight page structure with static content and optimized local image loading",
+  "Distinct coded packaging language that makes the product memorable",
+  "Warm, masculine scent direction without an overly sharp finish",
   "Mobile-first layout tuned for thumb reach and quick scanning",
   "Clear single-product conversion flow instead of cluttered catalog friction",
 ];
@@ -67,15 +67,20 @@ const reasons = [
 const faqs = [
   {
     question: "Who is this beard oil for?",
-    answer: "Men with short, medium, or fuller beards who want softness, control, and a cleaner finish.",
+    answer: "Men who want a beard oil that feels premium, wears smoothly, and fits an everyday grooming routine.",
   },
   {
-    question: "How do I use it?",
-    answer: "Warm 2 to 4 drops in your palms, massage into the beard and skin, then comb through.",
+    question: "What is inside this variant?",
+    answer:
+      "The label lists jojoba oil, almond oil, argan oil, castor oil, vitamin E, tobacco vanilla oil, and cedarwood oil.",
+  },
+  {
+    question: "How long is it best for?",
+    answer: "The label states the product is best for 24 months from the manufacturing date.",
   },
   {
     question: "How do I place an order?",
-    answer: "Tap any order button to open WhatsApp with a pre-filled message for the 30ml bottle.",
+    answer: "Tap any order button to open WhatsApp with a pre-filled message for this Modern_Lumber variant.",
   },
 ];
 
@@ -103,10 +108,10 @@ export default function HomePage() {
       <section className="hero-card" id="top">
         <div className="hero-copy">
           <p className="eyebrow">Premium Beard Care. Coded Differently.</p>
-          <h1>Just_Beard builds a sharper beard routine in a single bottle.</h1>
+          <h1>Modern_Lumber brings a warm Tobacco-Vanilla beard ritual into one bottle.</h1>
           <p className="hero-text">
-            Organic beard oil, hand-poured in small batches, designed for men who want softness,
-            control, and a clean daily ritual.
+            A premium organic beard oil from Just_Beard with a warm, smoky, smooth profile built
+            for the modern man.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
@@ -118,8 +123,8 @@ export default function HomePage() {
           </div>
           <ul className="hero-tags" aria-label="product highlights">
             <li>Organic blend</li>
-            <li>30ml amber bottle</li>
-            <li>Mobile-first ordering</li>
+            <li>30ml bottle</li>
+            <li>Tobacco-Vanilla profile</li>
           </ul>
         </div>
 
@@ -202,8 +207,8 @@ export default function HomePage() {
           <div className="panel panel-tall">
             <h3>{productName}</h3>
             <p>
-              A lightweight beard oil blend featuring jojoba oil, argan oil, and castor oil in a
-              shelf-ready amber glass bottle.
+              A hand-poured organic beard oil built around a warm Tobacco-Vanilla scent with
+              cedarwood depth and an ingredient blend aimed at softness and control.
             </p>
             <ul className="stack-list">
               {portfolioItems.map((item) => (
@@ -255,9 +260,10 @@ export default function HomePage() {
 
       <section className="cta-banner" id="cta">
         <p className="eyebrow">CTA</p>
-        <h2>Ready to order your first bottle of Just_Beard?</h2>
+        <h2>Ready to order your bottle of Modern_Lumber?</h2>
         <p>
-          Open WhatsApp Business with a pre-filled order message and continue the purchase there.
+          Open WhatsApp with a pre-filled message for the Tobacco-Vanilla variant and continue the
+          purchase there.
         </p>
         <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
           Order {productName}
