@@ -1,103 +1,86 @@
 import Image from "next/image";
-import productImage from "@/images/file_00000000add071fa814510538eada266.png";
+import labelImage from "@/images/label_final.png";
 
+const brandName = "JUST_BEARD";
+const productName = "Modern Lumber Beard Oil";
+const scentProfile = "Tobacco Vanilla";
+const volume = "30ML";
+const price = "₹899";
 const whatsappNumber = "917015684448";
-const productName = "variant_01: Modern_Lumber - Tobacco-Vanilla";
 const orderMessage = encodeURIComponent(
-  `Hi Just_Beard, I want to order ${productName}. Please share price and delivery details.`,
+  `Hi ${brandName}, I want to order ${productName} in ${scentProfile} (${volume}) at ${price}. Please share the next step.`,
 );
 const orderLink = `https://wa.me/${whatsappNumber}?text=${orderMessage}`;
 
-const problems = [
-  "Dry beard texture that feels rough by midday",
-  "Skin under the beard getting irritated after washing",
-  "Heavy oils that sit on the beard instead of absorbing cleanly",
+const heroFacts = [
+  { label: "Format", value: "Daily beard oil" },
+  { label: "Scent", value: scentProfile },
+  { label: "Volume", value: volume },
+  { label: "MRP", value: price },
 ];
 
-const solutions = [
-  "Warm Tobacco-Vanilla profile built to feel present without being loud",
-  "Organic blend with jojoba, almond, argan, and castor oils",
-  "Hand-poured 30ml formula designed for softer texture and easier control",
-];
-
-const caseStudies = [
+const productPrinciples = [
   {
-    title: "Workday Reset",
-    text: "Use 2 to 3 drops after a shower for a cleaner beard line and a calm finish that stays put through office hours.",
+    title: "Softer texture",
+    text: "Jojoba, almond, argan, and castor work together to make coarse beard hair feel more supple and easier to shape.",
   },
   {
-    title: "Weekend Grooming",
-    text: "Massage into the beard before brushing to reduce flyaways, smooth the shape, and leave a low-shine finish.",
+    title: "Calmer underneath",
+    text: "The blend is meant to be massaged into the skin below the beard, helping the routine feel conditioning rather than heavy.",
   },
   {
-    title: "Starter Routine",
-    text: "A straightforward bottle for men building a beard-care habit without a complicated routine or overloaded shelf.",
+    title: "A composed finish",
+    text: "Tobacco vanilla and cedarwood give the oil warmth and depth without pushing the scent into something loud or sugary.",
   },
 ];
 
-const testimonials = [
-  {
-    quote: "The beard feels softer within minutes and the scent stays subtle.",
-    author: "Arjun, Bengaluru",
-  },
-  {
-    quote: "No greasy finish, no flakes, and the bottle looks premium on the shelf.",
-    author: "Rohit, Pune",
-  },
-  {
-    quote: "It fits into a simple routine: shower, apply, brush, done.",
-    author: "Sameer, Hyderabad",
-  },
+const ingredients = [
+  { name: "Jojoba oil", amount: "13.2ML" },
+  { name: "Sweet almond oil", amount: "9ML" },
+  { name: "Argan oil", amount: "6ML" },
+  { name: "Castor oil", amount: "1ML" },
+  { name: "Vitamin E", amount: "0.1ML" },
+  { name: "Tobacco vanilla oil", amount: "0.5ML" },
+  { name: "Cedarwood oil", amount: "0.2ML" },
 ];
 
-const portfolioItems = [
-  "Modern_Lumber identity with a warm Tobacco-Vanilla direction",
-  "Organic formula with jojoba, almond, argan, and castor oils",
-  "Vitamin E with tobacco vanilla and cedarwood oil accents",
-  "WhatsApp-first ordering for a fast mobile checkout path",
+const ritualSteps = [
+  "Warm 2 to 4 drops between your palms after showering or before heading out.",
+  "Work the oil from the skin underneath through the beard so the texture softens evenly.",
+  "Finish with a comb or your hands for a beard that looks maintained, not overloaded.",
 ];
 
-const reasons = [
-  "Distinct coded packaging language that makes the bottle memorable",
-  "Warm scent direction that feels premium without turning sharp or overpowering",
-  "Single-product flow that removes catalog clutter and keeps the page easy to scan",
-  "Mobile-first layout that keeps copy, CTA, and product details within thumb reach",
+const routineNotes = [
+  "Organic oils. Hand poured.",
+  "Designed for short, medium, and full beards that need more control.",
+  "Best before 24 months from manufacturing.",
+  "For external use only. Avoid contact with eyes.",
 ];
 
 const faqs = [
   {
-    question: "Who is this beard oil for?",
-    answer: "Men who want a beard oil that feels premium, wears smoothly, and fits an everyday grooming routine.",
-  },
-  {
-    question: "What is inside this variant?",
+    question: "What does Modern Lumber smell like?",
     answer:
-      "The label lists jojoba oil, almond oil, argan oil, castor oil, vitamin E, tobacco vanilla oil, and cedarwood oil.",
+      "It opens warm and dry, with tobacco and vanilla rounded out by cedarwood. The result is refined and grounded rather than overly sweet.",
   },
   {
-    question: "How long is it best for?",
-    answer: "The label states the product is best for 24 months from the manufacturing date.",
+    question: "Will it suit a shorter beard?",
+    answer:
+      "Yes. It works for early growth through fuller beards because the routine is about conditioning the hair and the skin underneath, not just adding shine.",
+  },
+  {
+    question: "How long does one bottle last?",
+    answer:
+      "That depends on beard length and how many drops you use, but the 30ML bottle is sized for regular daily use rather than occasional application.",
   },
   {
     question: "How do I place an order?",
-    answer: "Tap any order button to open WhatsApp with a pre-filled message for this Modern_Lumber variant.",
+    answer:
+      "Use the WhatsApp button on the page. The message is pre-filled with the product details so the checkout conversation starts immediately.",
   },
 ];
 
-const quickFacts = [
-  { label: "blend", value: "organic" },
-  { label: "size", value: "30ml" },
-  { label: "finish", value: "clean" },
-];
-
-const orderFacts = [
-  { label: "Variant", value: "variant_01" },
-  { label: "Use", value: "2-3 drops" },
-  { label: "Shelf life", value: "24 months" },
-  { label: "Checkout", value: "WhatsApp" },
-];
-
-function SectionHeading({
+function SectionIntro({
   eyebrow,
   title,
   copy,
@@ -107,8 +90,8 @@ function SectionHeading({
   copy: string;
 }) {
   return (
-    <div className="section-heading">
-      <span>{eyebrow}</span>
+    <div className="section-intro">
+      <p>{eyebrow}</p>
       <h2>{title}</h2>
       <p>{copy}</p>
     </div>
@@ -117,195 +100,197 @@ function SectionHeading({
 
 export default function HomePage() {
   return (
-    <main className="page-shell">
-      <section className="hero-card" id="top">
-        <div className="hero-copy">
-          <p className="eyebrow">{"> Just_Beard / Premium Beard Care"}</p>
-          <h1>Warm Tobacco-Vanilla beard oil for a softer, cleaner daily beard.</h1>
-          <p className="hero-text">
-            Modern_Lumber by Just_Beard blends jojoba, almond, argan, castor oil, and vitamin E
-            into a hand-poured formula that softens the beard, calms the skin underneath, and
-            avoids a greasy finish.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
-              Order on WhatsApp
+    <>
+      <main className="site-shell">
+        <header className="site-header">
+          <a className="brand-lockup" href="#top">
+            <span>{brandName}</span>
+            <strong>Modern Lumber</strong>
+          </a>
+          <nav className="site-nav" aria-label="Primary">
+            <a href="#benefits">Benefits</a>
+            <a href="#formula">Formula</a>
+            <a href="#faq">FAQ</a>
+            <a className="nav-cta" href={orderLink} target="_blank" rel="noreferrer">
+              Order
             </a>
-            <a className="button button-secondary" href="#portfolio">
-              View Product
-            </a>
-          </div>
-          <ul className="hero-tags" aria-label="product highlights">
-            <li>Organic blend</li>
-            <li>30ml bottle</li>
-            <li>Tobacco-Vanilla profile</li>
-          </ul>
-          <div className="hero-stats" aria-label="quick product facts">
-            {quickFacts.map((fact) => (
-              <div className="stat-card" key={fact.label}>
-                <span>{fact.label}</span>
-                <strong>{fact.value}</strong>
-              </div>
-            ))}
-          </div>
-        </div>
+          </nav>
+        </header>
 
-        <div className="hero-visual">
-          <div className="image-glow" />
-          <Image
-            src={productImage}
-            alt="Just_Beard organic beard oil bottle"
-            priority
-            sizes="(max-width: 859px) 78vw, 420px"
-            className="product-image"
-          />
-        </div>
-      </section>
-
-      <section className="content-section" id="problem-solution">
-        <SectionHeading
-          eyebrow="Problem / Solution"
-          title="Built for beards that need moisture, calm, and shape."
-          copy="Daily beard care breaks down fast when the oil feels heavy, smells too loud, or leaves the skin irritated. This bottle is built to solve that cleanly."
-        />
-        <div className="split-grid">
-          <div className="panel">
-            <h3>The problem</h3>
-            <ul className="stack-list">
-              {problems.map((problem) => (
-                <li key={problem}>{problem}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="panel panel-accent">
-            <h3>The solution</h3>
-            <ul className="stack-list">
-              {solutions.map((solution) => (
-                <li key={solution}>{solution}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="content-section" id="case-studies">
-        <SectionHeading
-          eyebrow="Case Studies"
-          title="Three moments where the bottle earns its place."
-          copy="From office grooming to weekend maintenance, the formula is positioned around real routines instead of generic marketing filler."
-        />
-        <div className="card-grid">
-          {caseStudies.map((item) => (
-            <article className="panel" key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-section" id="testimonials">
-        <SectionHeading
-          eyebrow="Testimonials"
-          title="Proof focused on feel, finish, and scent."
-          copy="Short feedback blocks keep the section credible, quick to scan, and easy to read on smaller screens."
-        />
-        <div className="card-grid">
-          {testimonials.map((item) => (
-            <blockquote className="panel testimonial" key={item.author}>
-              <p>{item.quote}</p>
-              <footer>{item.author}</footer>
-            </blockquote>
-          ))}
-        </div>
-      </section>
-
-      <section className="content-section" id="portfolio">
-        <SectionHeading
-          eyebrow="Portfolio"
-          title="One hero product with the buying context kept tight."
-          copy="Everything important about the formula, bottle, and ordering path is kept in one place so the page stays focused and mobile-friendly."
-        />
-        <div className="portfolio-layout">
-          <div className="panel panel-tall">
-            <h3>{productName}</h3>
-            <p>
-              A hand-poured organic beard oil built around a warm Tobacco-Vanilla scent with
-              cedarwood depth and an ingredient blend aimed at softness, control, and daily wear.
+        <section className="hero-section" id="top">
+          <div className="hero-copy">
+            <p className="hero-eyebrow">Luxury beard care, reduced to what matters.</p>
+            <h1>The daily beard oil for men who prefer their grooming understated.</h1>
+            <p className="hero-text">
+              {productName} is a 30ML hand-poured blend made with jojoba, sweet almond, argan,
+              castor, vitamin E, tobacco vanilla, and cedarwood. It is built to soften texture,
+              condition the skin underneath, and leave a cleaner, more composed finish than heavy
+              oils that sit on top of the beard.
             </p>
-            <ul className="stack-list">
-              {portfolioItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="panel order-panel">
-            <div className="order-summary">
-              <p className="terminal-label">variant_01</p>
-              <h3>Ready to order</h3>
-              <p>{productName}</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
+                Order on WhatsApp
+              </a>
+              <a className="button button-secondary" href="#formula">
+                Review the Formula
+              </a>
             </div>
-            <div className="fact-grid" aria-label="order facts">
-              {orderFacts.map((fact) => (
-                <div className="fact-card" key={fact.label}>
+            <ul className="hero-pills" aria-label="Product highlights">
+              <li>Organic oils</li>
+              <li>Hand poured</li>
+              <li>{scentProfile}</li>
+            </ul>
+            <div className="hero-facts" aria-label="Product facts">
+              {heroFacts.map((fact) => (
+                <article className="fact-tile" key={fact.label}>
                   <span>{fact.label}</span>
                   <strong>{fact.value}</strong>
-                </div>
+                </article>
               ))}
             </div>
-            <p className="micro-note">
-              WhatsApp opens with this exact variant pre-filled so the mobile checkout path stays
-              fast.
+          </div>
+
+          <figure className="hero-visual">
+            <div className="visual-frame">
+              <div className="visual-accent" aria-hidden="true" />
+              <Image
+                src={labelImage}
+                alt="Front and back label artwork for Just Beard Modern Lumber beard oil"
+                priority
+                sizes="(max-width: 900px) 100vw, 42vw"
+                className="hero-image"
+              />
+            </div>
+            <figcaption>
+              30ML of daily beard oil with a tobacco vanilla signature and a clean, understated
+              grooming profile.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section className="content-section" id="benefits">
+          <SectionIntro
+            eyebrow="Why This Bottle"
+            title="A cleaner answer to rough texture, dry skin, and overdone shine."
+            copy="Modern Lumber is positioned for daily use: enough richness to improve feel and control, enough restraint to stay elegant on skin, beard, and scent."
+          />
+          <div className="benefit-grid">
+            {productPrinciples.map((principle) => (
+              <article className="card" key={principle.title}>
+                <h3>{principle.title}</h3>
+                <p>{principle.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="content-section formula-section" id="formula">
+          <SectionIntro
+            eyebrow="Formula"
+            title="A 30ML blend with a clear job to do."
+            copy="Jojoba leads the formula for everyday conditioning, sweet almond and argan bring softness and glide, castor adds body, and the tobacco vanilla with cedarwood gives the oil its quiet signature."
+          />
+          <div className="formula-layout">
+            <article className="card card-emphasis">
+              <p className="detail-label">Signature profile</p>
+              <h3>{scentProfile}</h3>
+              <p>
+                Warm tobacco, soft vanilla, and dry cedarwood bring structure to the bottle. The
+                profile is designed to feel polished from close range, not overpowering across the
+                room.
+              </p>
+            </article>
+
+            <article className="card">
+              <p className="detail-label">Ingredients by volume</p>
+              <dl className="ingredient-list">
+                {ingredients.map((ingredient) => (
+                  <div className="ingredient-row" key={ingredient.name}>
+                    <dt>{ingredient.name}</dt>
+                    <dd>{ingredient.amount}</dd>
+                  </div>
+                ))}
+              </dl>
+            </article>
+          </div>
+        </section>
+
+        <section className="content-section ritual-section" id="ritual">
+          <SectionIntro
+            eyebrow="Routine"
+            title="Built to fit a simple morning ritual."
+            copy="A good beard oil should be easy to use, easy to repeat, and easy to live with. Modern Lumber keeps the routine short while upgrading how the beard feels through the day."
+          />
+          <div className="ritual-layout">
+            <article className="card">
+              <p className="detail-label">How to use</p>
+              <ol className="ritual-list">
+                {ritualSteps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </article>
+            <article className="card">
+              <p className="detail-label">Bottle notes</p>
+              <ul className="note-list">
+                {routineNotes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section className="content-section faq-section" id="faq">
+          <SectionIntro
+            eyebrow="FAQ"
+            title="Everything important, without the clutter."
+            copy="The page keeps the buying path fast, especially on mobile, so these are the only questions worth stopping for before checkout."
+          />
+          <div className="faq-list">
+            {faqs.map((item) => (
+              <details className="faq-item" key={item.question}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="final-cta" id="order">
+          <div>
+            <p className="detail-label">Ready to order</p>
+            <h2>One bottle. A sharper daily standard.</h2>
+            <p>
+              If your beard feels dry, rough, or unfinished by midday, Modern Lumber gives you a
+              more considered option than heavy oils and loud fragrance profiles. Order directly on
+              WhatsApp and keep the routine simple.
             </p>
+          </div>
+          <div className="cta-side">
+            <div className="cta-price">
+              <span>MRP</span>
+              <strong>{price}</strong>
+              <small>{volume} | Quick WhatsApp checkout</small>
+            </div>
             <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
-              Order This Product
+              Buy {productName}
             </a>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <section className="content-section" id="why-us">
-        <SectionHeading
-          eyebrow="Why Us"
-          title="Designed to feel premium before the first drop is used."
-          copy="The brand language, the scent profile, and the purchase flow all support a single product story without clutter."
-        />
-        <div className="card-grid">
-          {reasons.map((item) => (
-            <article className="panel" key={item}>
-              <p>{item}</p>
-            </article>
-          ))}
+      <div className="mobile-order-bar">
+        <div>
+          <span>{productName}</span>
+          <strong>
+            {price} | {volume}
+          </strong>
         </div>
-      </section>
-
-      <section className="content-section" id="faq">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Common buyer questions answered quickly."
-          copy="Ingredients, usage, shelf life, and ordering are all handled in short blocks so the section stays fast to scan on a phone."
-        />
-        <div className="faq-list">
-          {faqs.map((item) => (
-            <article className="panel" key={item.question}>
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="cta-banner" id="cta">
-        <p className="eyebrow">CTA</p>
-        <h2>Ready to order your bottle of Modern_Lumber?</h2>
-        <p>
-          Open WhatsApp with a pre-filled message for the Tobacco-Vanilla variant and continue the
-          purchase there.
-        </p>
-        <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
-          Order {productName}
+        <a href={orderLink} target="_blank" rel="noreferrer">
+          Order
         </a>
-      </section>
-    </main>
+      </div>
+    </>
   );
 }
