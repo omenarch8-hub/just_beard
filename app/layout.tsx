@@ -4,13 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Just_Beard | Modern Lumber Beard Oil",
   description:
-    "Luxury minimal product page for Just_Beard Modern Lumber beard oil with mobile-first conversion copy, a warm editorial palette, and a faster WhatsApp order flow.",
+    "Conversion-focused product page for Just_Beard Modern Lumber beard oil with updated product photography, a Rs. 399 offer price, responsive mobile and desktop layouts, and direct WhatsApp checkout.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#dcc2a0",
+  themeColor: "#d2b48a",
 };
 
 export default function RootLayout({

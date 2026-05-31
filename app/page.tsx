@@ -1,36 +1,50 @@
-import Image from "next/image";
-import labelImage from "@/images/label_final.png";
+import Image, { type StaticImageData } from "next/image";
+import heroShot from "@/images/2e80661a-981a-49b5-bbfc-b0b13610ce06.jpg";
+import detailShot from "@/images/5127da6d-d02b-46bb-b70e-d8411841d468.jpg";
+import angleShot from "@/images/f177ee2d-bec0-436b-8e5f-244b598bb425.jpg";
 
 const brandName = "JUST_BEARD";
 const productName = "Modern Lumber Beard Oil";
 const scentProfile = "Tobacco Vanilla";
 const volume = "30ML";
-const price = "₹899";
+const price = "399";
+const displayPrice = `₹${price}`;
 const whatsappNumber = "917015684448";
 const orderMessage = encodeURIComponent(
-  `Hi ${brandName}, I want to order ${productName} in ${scentProfile} (${volume}) at ${price}. Please share the next step.`,
+  `Hi ${brandName}, I want to order ${productName} in ${scentProfile} (${volume}) at ${displayPrice}. Please share the next step.`,
 );
 const orderLink = `https://wa.me/${whatsappNumber}?text=${orderMessage}`;
 
-const heroFacts = [
-  { label: "Format", value: "Daily beard oil" },
-  { label: "Scent", value: scentProfile },
-  { label: "Volume", value: volume },
-  { label: "MRP", value: price },
+const galleryShots: Array<{
+  src: StaticImageData;
+  alt: string;
+}> = [
+  {
+    src: heroShot,
+    alt: "Just Beard Modern Lumber beard oil product photo, primary view",
+  },
+  {
+    src: detailShot,
+    alt: "Just Beard Modern Lumber beard oil product photo, detail view",
+  },
+  {
+    src: angleShot,
+    alt: "Just Beard Modern Lumber beard oil product photo, alternate view",
+  },
 ];
 
 const productPrinciples = [
   {
     title: "Softer texture",
-    text: "Jojoba, almond, argan, and castor work together to make coarse beard hair feel more supple and easier to shape.",
+    text: "Jojoba, almond, argan, and castor help coarse beard hair feel softer, easier to shape, and less dry through the day.",
   },
   {
-    title: "Calmer underneath",
-    text: "The blend is meant to be massaged into the skin below the beard, helping the routine feel conditioning rather than heavy.",
+    title: "Calmer skin underneath",
+    text: "Massage it below the beard to condition the skin where dryness and itch usually start.",
   },
   {
-    title: "A composed finish",
-    text: "Tobacco vanilla and cedarwood give the oil warmth and depth without pushing the scent into something loud or sugary.",
+    title: "Clean, low-shine finish",
+    text: "The lightweight feel keeps your beard looking maintained, not oily or overdone.",
   },
 ];
 
@@ -117,62 +131,57 @@ export default function HomePage() {
           </nav>
         </header>
 
-        <section className="hero-section" id="top">
-          <div className="hero-copy">
-            <p className="hero-eyebrow">Luxury beard care, reduced to what matters.</p>
-            <h1>The daily beard oil for men who prefer their grooming understated.</h1>
-            <p className="hero-text">
-              {productName} is a 30ML hand-poured blend made with jojoba, sweet almond, argan,
-              castor, vitamin E, tobacco vanilla, and cedarwood. It is built to soften texture,
-              condition the skin underneath, and leave a cleaner, more composed finish than heavy
-              oils that sit on top of the beard.
+        <section className="quick-order-section" id="top" aria-labelledby="quick-order-title">
+          <div className="quick-order-copy">
+            <p className="detail-label">Softens rough beards without the greasy finish.</p>
+            <h2 id="quick-order-title">
+              A lightweight beard oil for softer texture, calmer skin, and a cleaner finish.
+            </h2>
+            <p>
+              Modern Lumber is a {volume} hand-poured beard oil made to soften coarse hair,
+              condition the skin underneath, and leave your beard looking maintained instead of
+              oily. Finished with warm tobacco vanilla and cedarwood.
             </p>
-            <div className="hero-actions">
+            <div className="quick-order-actions">
               <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
-                Order on WhatsApp
+                Order for {displayPrice} on WhatsApp
               </a>
               <a className="button button-secondary" href="#formula">
                 Review the Formula
               </a>
             </div>
-            <ul className="hero-pills" aria-label="Product highlights">
-              <li>Organic oils</li>
-              <li>Hand poured</li>
-              <li>{scentProfile}</li>
-            </ul>
-            <div className="hero-facts" aria-label="Product facts">
-              {heroFacts.map((fact) => (
-                <article className="fact-tile" key={fact.label}>
-                  <span>{fact.label}</span>
-                  <strong>{fact.value}</strong>
-                </article>
-              ))}
+            <div className="quick-order-meta" aria-label="Order summary">
+              <span>{displayPrice}</span>
+              <span>{volume}</span>
+              <span>{scentProfile}</span>
             </div>
           </div>
 
-          <figure className="hero-visual">
-            <div className="visual-frame">
-              <div className="visual-accent" aria-hidden="true" />
-              <Image
-                src={labelImage}
-                alt="Front and back label artwork for Just Beard Modern Lumber beard oil"
-                priority
-                sizes="(max-width: 900px) 100vw, 42vw"
-                className="hero-image"
-              />
+          <div className="product-auto-carousel" aria-label="Self-changing product image carousel">
+            {galleryShots.map((shot, index) => (
+              <figure className="product-auto-slide" key={shot.alt}>
+                <Image
+                  src={shot.src}
+                  alt={shot.alt}
+                  sizes="(max-width: 900px) 100vw, 50vw"
+                  className="product-auto-image"
+                  priority={index === 0}
+                />
+              </figure>
+            ))}
+            <div className="product-carousel-dots" aria-hidden="true">
+              {galleryShots.map((shot) => (
+                <span key={shot.alt} />
+              ))}
             </div>
-            <figcaption>
-              30ML of daily beard oil with a tobacco vanilla signature and a clean, understated
-              grooming profile.
-            </figcaption>
-          </figure>
+          </div>
         </section>
 
         <section className="content-section" id="benefits">
           <SectionIntro
             eyebrow="Why This Bottle"
-            title="A cleaner answer to rough texture, dry skin, and overdone shine."
-            copy="Modern Lumber is positioned for daily use: enough richness to improve feel and control, enough restraint to stay elegant on skin, beard, and scent."
+            title="Softens the beard. Calms the skin. Keeps the finish clean."
+            copy="Modern Lumber is made for daily use: enough conditioning to improve feel and control, without the heavy shine or loud fragrance."
           />
           <div className="benefit-grid">
             {productPrinciples.map((principle) => (
@@ -244,8 +253,8 @@ export default function HomePage() {
         <section className="content-section faq-section" id="faq">
           <SectionIntro
             eyebrow="FAQ"
-            title="Everything important, without the clutter."
-            copy="The page keeps the buying path fast, especially on mobile, so these are the only questions worth stopping for before checkout."
+            title="Questions before you order."
+            copy="The essentials on scent, beard length, bottle life, and checkout."
           />
           <div className="faq-list">
             {faqs.map((item) => (
@@ -260,18 +269,19 @@ export default function HomePage() {
         <section className="final-cta" id="order">
           <div>
             <p className="detail-label">Ready to order</p>
-            <h2>One bottle. A sharper daily standard.</h2>
+            <h2>Start with one {volume} bottle.</h2>
             <p>
               If your beard feels dry, rough, or unfinished by midday, Modern Lumber gives you a
-              more considered option than heavy oils and loud fragrance profiles. Order directly on
-              WhatsApp and keep the routine simple.
+              simple daily fix: softer texture, cleaner finish, and quick WhatsApp checkout.
             </p>
           </div>
           <div className="cta-side">
             <div className="cta-price">
-              <span>MRP</span>
-              <strong>{price}</strong>
-              <small>{volume} | Quick WhatsApp checkout</small>
+              <span>Price</span>
+              <strong>{displayPrice}</strong>
+              <small>
+                {volume} | Quick WhatsApp checkout
+              </small>
             </div>
             <a className="button button-primary" href={orderLink} target="_blank" rel="noreferrer">
               Buy {productName}
@@ -284,7 +294,7 @@ export default function HomePage() {
         <div>
           <span>{productName}</span>
           <strong>
-            {price} | {volume}
+            {displayPrice} | {volume}
           </strong>
         </div>
         <a href={orderLink} target="_blank" rel="noreferrer">
